@@ -83,11 +83,17 @@ class Sms
         return $this;
     }
 
+    /**
+     * @return mixed
+     * @throws \Exception
+     */
     public function send()
     {
         if($this->config=='YunTongXun'){
             $rest=new Rest(config('agents'.$this->config));
             return $rest->sendTemplateSMS($this->smsData['to'],$this->smsData['templateData'],$this->smsData['templates']);
+        }else{
+            throw new \Exception('make sure you have choose a right agent');
         }
     }
 }
