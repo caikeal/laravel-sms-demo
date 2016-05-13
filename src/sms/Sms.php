@@ -91,7 +91,7 @@ class Sms
     {
         if($this->config=='YunTongXun'){
             $rest=new Rest(config('agents'.$this->config));
-            return $rest->sendTemplateSMS($this->smsData['to'],$this->smsData['templateData'],$this->smsData['templates']);
+            return $rest->sendTemplateSMS($this->smsData['to'],$this->smsData['templateData'],$this->smsData['templates']['YunTongXun']);
         }else{
             throw new \Exception('make sure you have choose a right agent');
         }
