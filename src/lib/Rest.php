@@ -26,12 +26,12 @@ class Rest
     public function __construct(array $config, $BodyType = 'json')
     {
         $this->Batch = date('YmdHis');
-        $this->ServerIP = $config['ServerIP'];
-        $this->ServerPort = $config['ServerPort'];
-        $this->SoftVersion = $config['SoftVersion'];
-        $this->AppId=$config['AppId'];
-        $this->AccountSid=$config['AccountSid'];
-        $this->AccountToken=$config['AccountToken'];
+        $this->ServerIP = $config['serverIP'];
+        $this->ServerPort = $config['serverPort'];
+        $this->SoftVersion = $config['softVersion'];
+        $this->AppId=$config['appId'];
+        $this->AccountSid=$config['accountSid'];
+        $this->AccountToken=$config['accountToken'];
         if (in_array($BodyType, ['xml', 'json'])) {
             $this->BodyType = $BodyType;
         }
