@@ -57,7 +57,7 @@ class Sms
      * @param null $tempId
      * @return $this
      */
-    public function template($agentName, $tempId = null)
+    public function template($agentName=$config('sms.default'), $tempId = null)
     {
         if (is_array($agentName)) {
             foreach ($agentName as $k => $v) {

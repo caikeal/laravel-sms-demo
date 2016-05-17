@@ -13,3 +13,6 @@
 
 ##配置config
 `php artisan vendor:publish`
+
+##使用
+Sms::to("这里填写手机号")->template('YunTongXun',具体的模版id)->data("模版内容数组")->send();
