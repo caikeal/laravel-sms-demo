@@ -1,5 +1,5 @@
 # laravel-sms-demo
-## 支持云通讯，尝试写个可能不太完美^_^
+## 支持云通讯
 ## 安装
 `composer require keal/laravel-sms:dev-master`
 

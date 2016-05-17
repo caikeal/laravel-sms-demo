@@ -32,7 +32,7 @@ return [
             'serverPort' => '8883',
 
             //REST版本号，在官网文档REST介绍中获得。
-            '$softVersion' => '2013-12-26',
+            'softVersion' => '2013-12-26',
         ]
     ]
 ];
