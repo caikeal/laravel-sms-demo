@@ -1,4 +1,6 @@
 # laravel-sms-demo
+[![Build Status](https://travis-ci.org/caikeal/laravel-sms-demo.svg?branch=master)](https://travis-ci.org/caikeal/laravel-sms-demo)
+
 ## 支持云通讯
 ## 安装
 `composer require keal/laravel-sms:dev-master`
