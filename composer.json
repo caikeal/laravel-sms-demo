@@ -18,6 +18,11 @@
       "LaravelSms\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Sms\\Test\\": "tests/"
+    }
+  },
   "minimum-stability": "dev",
   "require": {}
 }
