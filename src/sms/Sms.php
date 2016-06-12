@@ -26,7 +26,7 @@ class Sms
     {
         $this->config = $config;
     }
-    
+
     /**
      * Get all the data of SMS/voice verify.
      *
@@ -108,6 +108,7 @@ class Sms
     public function data(array $data)
     {
         $this->smsData['templateData'] = $data;
+
         return $this;
     }
 
