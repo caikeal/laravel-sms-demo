@@ -1,4 +1,5 @@
 # laravel-sms-demo
+[![StyleCI](https://styleci.io/repos/58302704/shield)](https://styleci.io/repos/58302704)
 [![Build Status](https://travis-ci.org/caikeal/laravel-sms-demo.svg?branch=master)](https://travis-ci.org/caikeal/laravel-sms-demo)
 
 ## 支持云通讯

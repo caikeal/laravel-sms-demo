@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: Odeen
  * Date: 2016/5/8
- * Time: 23:42
+ * Time: 23:42.
  */
 
 namespace LaravelSms\sms;
@@ -14,10 +14,10 @@ use LaravelSms\lib\Rest;
 class Sms
 {
     protected $smsData = [
-        'to' => null,
-        'templates' => [],
+        'to'           => null,
+        'templates'    => [],
         'templateData' => [],
-        'content' => null
+        'content'      => null
     ];
 
     protected $agent;
@@ -28,7 +28,8 @@ class Sms
     {
         $this->config = $config;
     }
-    
+
+
     /**
      * Get all the data of SMS/voice verify.
      *
@@ -41,40 +42,49 @@ class Sms
         if (is_string($name) && isset($this->smsData["$name"])) {
             return $this->smsData[$name];
         }
+
         return $this->smsData;
     }
 
     /**
-     * send mobile
+     * send mobile.
+     *
      * @param $mobile
+     *
      * @return $this
      */
     public function to($mobile)
     {
         $this->smsData['to'] = $mobile;
+
         return $this;
     }
 
     /**
-     * send content for part of sms-providers support content-sms
+     * send content for part of sms-providers support content-sms.
+     *
      * @param $content
+     *
      * @return $this
      */
     public function content($content)
     {
         $this->smsData['content'] = $content;
+
         return $this;
     }
 
     /**
-     * set template-id for part of sms-providers support template-sms
+     * set template-id for part of sms-providers support template-sms.
+     *
      * @param $agentName
      * @param null $tempId
+     *
      * @return $this
      */
-    public function template($agentName='SMS_AGENT', $tempId = null)
+    public function template($agentName = 'SMS_AGENT', $tempId = null)
     {
-        if ($agentName === 'SMS_AGENT'){
+        if ($agentName === 'SMS_AGENT') {
             $agentName = $this->config;
         }
         if (is_array($agentName)) {
@@ -87,12 +97,15 @@ class Sms
             }
             $this->smsData['templates']["$agentName"] = $tempId;
         }
+
         return $this;
     }
 
     /**
-     * set template-data for part of sms-providers support template-sms
+     * set template-data for part of sms-providers support template-sms.
+     *
      * @param array $data
+     *
      * @return $this
      */
     public function data(array $data)
@@ -102,16 +115,19 @@ class Sms
     }
 
     /**
-     * @return mixed
      * @throws \Exception
+     *
+     * @return mixed
      */
     public function send()
     {
-        if($this->config=='YunTongXun'){
-            $rest=new Rest(config('sms.agents.'.$this->config));
-            return $rest->sendTemplateSMS($this->smsData['to'],$this->smsData['templateData'],$this->smsData['templates']['YunTongXun']);
-        }else{
+        if ($this->config == 'YunTongXun') {
+            $rest = new Rest(config('sms.agents.'.$this->config));
+
+            return $rest->sendTemplateSMS($this->smsData['to'], $this->smsData['templateData'], $this->smsData['templates']['YunTongXun']);
+        } else {
             throw new \Exception('make sure you have choose a right agent');
         }
     }
+    
 }

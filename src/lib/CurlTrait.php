@@ -3,25 +3,26 @@
  * Created by PhpStorm.
  * User: Odeen
  * Date: 2016/5/9
- * Time: 17:34
+ * Time: 17:34.
  */
 
 namespace LaravelSms\lib;
 
 /**
  * Class CurlTrait
- * @package LaravelSms\lib
+ *
  * @function curl_post($url, $data, $header, $post = 1)
  */
 trait CurlTrait
 {
-    public $BodyType='json';
+    public $BodyType = 'json';
     /**
-     * create url post
+     * create url post.
      * @param $url
      * @param $data
      * @param $header
      * @param int $post
+     *
      * @return string
      */
     public function curl_post($url, $data, $header, $post = 1)
@@ -49,6 +50,8 @@ trait CurlTrait
             }
         }
         curl_close($ch);
+
         return $result;
     }
+    
 }

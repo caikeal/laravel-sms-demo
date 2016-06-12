@@ -1,5 +1,7 @@
 <?php
+
 namespace LaravelSms\lib;
+
 /*
  *  Copyright (c) 2014 The CCP project authors. All Rights Reserved.
  *
@@ -29,17 +31,18 @@ class Rest
         $this->ServerIP = $config['serverIP'];
         $this->ServerPort = $config['serverPort'];
         $this->SoftVersion = $config['softVersion'];
-        $this->AppId=$config['appId'];
-        $this->AccountSid=$config['accountSid'];
-        $this->AccountToken=$config['accountToken'];
+        $this->AppId = $config['appId'];
+        $this->AccountSid = $config['accountSid'];
+        $this->AccountToken = $config['accountToken'];
         if (in_array($BodyType, ['xml', 'json'])) {
             $this->BodyType = $BodyType;
         }
     }
+
     /**
-     * 设置主帐号
+     * 设置主帐号.
      *
-     * @param string $AccountSid   主帐号
+     * @param string $AccountSid 主帐号
      * @param string $AccountToken 主帐号Token
      */
     public function setAccount($AccountSid, $AccountToken)
@@ -47,8 +50,9 @@ class Rest
         $this->AccountSid = $AccountSid;
         $this->AccountToken = $AccountToken;
     }
+
     /**
-     * 设置应用ID
+     * 设置应用ID.
      *
      * @param string $AppId 应用ID
      */
@@ -56,13 +60,14 @@ class Rest
     {
         $this->AppId = $AppId;
     }
+
     /**
-     * 发起HTTPS请求
+     * 发起HTTPS请求.
      *
      * @param string $url
-     * @param mixed $data
-     * @param mixed $header
-     * @param mixed $post
+     * @param mixed  $data
+     * @param mixed  $header
+     * @param mixed  $post
      *
      * @return mixed
      */
@@ -91,16 +96,18 @@ class Rest
             }
         }
         curl_close($ch);
+
         return $result;
     }
+
     /**
-     * 发送模板短信
+     * 发送模板短信.
      *
      * @param string $to
      *                       短信接收彿手机号码集合,用英文逗号分开
-     * @param array  $datas
+     * @param array $datas
      *                       内容数据
-     * @param mixed  $tempId
+     * @param mixed $tempId
      *                       模板Id
      *
      * @return mixed
@@ -116,29 +123,29 @@ class Rest
         if ($this->BodyType === 'json') {
             $data = '';
             for ($i = 0; $i < count($datas); $i++) {
-                $data = $data . "'" . $datas[$i] . "',";
+                $data = $data."'".$datas[$i]."',";
             }
-            $body = "{'to':'$to','templateId':'$tempId','appId':'$this->AppId','datas':[" . $data . ']}';
+            $body = "{'to':'$to','templateId':'$tempId','appId':'$this->AppId','datas':[".$data.']}';
         } else {
             $data = '';
             for ($i = 0; $i < count($datas); $i++) {
-                $data = $data . '<data>' . $datas[$i] . '</data>';
+                $data = $data.'<data>'.$datas[$i].'</data>';
             }
             $body = "<TemplateSMS>
                     <to>$to</to> 
                     <appId>$this->AppId</appId>
                     <templateId>$tempId</templateId>
-                    <datas>" . $data . '</datas>
+                    <datas>".$data.'</datas>
                   </TemplateSMS>';
         }
         // 大写的sig参数
-        $sig = strtoupper(md5($this->AccountSid . $this->AccountToken . $this->Batch));
+        $sig = strtoupper(md5($this->AccountSid.$this->AccountToken.$this->Batch));
         // 生成请求URL
         $url = "https://$this->ServerIP:$this->ServerPort/$this->SoftVersion/Accounts/$this->AccountSid/SMS/TemplateSMS?sig=$sig";
         // 生成授权：主帐户Id + 英文冒号 + 时间戳。
-        $authen = base64_encode($this->AccountSid . ':' . $this->Batch);
+        $authen = base64_encode($this->AccountSid.':'.$this->Batch);
         // 生成包头
-        $header = array("Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8", "Authorization:$authen");
+        $header = ["Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8", "Authorization:$authen"];
         // 发送请求
         $result = $this->curl_post($url, $body, $header);
         if ($this->BodyType === 'json') {//JSON格式
@@ -152,17 +159,18 @@ class Rest
         }
         return $datas;
     }
+
     /**
-     * 语音验证码
+     * 语音验证码.
      *
-     * @param mixed $verifyCode     验证码内容，为数字和英文字母，不区分大小写，长度4-8位
-     * @param mixed $playTimes      播放次数，1－3次
-     * @param mixed $to             接收号码
-     * @param mixed $displayNum     显示的主叫号码
-     * @param mixed $respUrl        语音验证码状态通知回调地址，云通讯平台将向该Url地址发送呼叫结果通知
-     * @param mixed $lang           语言类型
-     * @param mixed $userData       第三方私有数据
-     * @param mixed $welcomePrompt  欢迎提示音，在播放验证码语音前播放此内容（语音文件格式为wav）
+     * @param mixed $verifyCode 验证码内容，为数字和英文字母，不区分大小写，长度4-8位
+     * @param mixed $playTimes 播放次数，1－3次
+     * @param mixed $to 接收号码
+     * @param mixed $displayNum 显示的主叫号码
+     * @param mixed $respUrl 语音验证码状态通知回调地址，云通讯平台将向该Url地址发送呼叫结果通知
+     * @param mixed $lang 语言类型
+     * @param mixed $userData 第三方私有数据
+     * @param mixed $welcomePrompt 欢迎提示音，在播放验证码语音前播放此内容（语音文件格式为wav）
      * @param mixed $playVerifyCode 语音验证码的内容全部播放此节点下的全部语音文件
      *
      * @return mixed
@@ -193,13 +201,13 @@ class Rest
                   </VoiceVerify>";
         }
         // 大写的sig参数
-        $sig = strtoupper(md5($this->AccountSid . $this->AccountToken . $this->Batch));
+        $sig = strtoupper(md5($this->AccountSid.$this->AccountToken.$this->Batch));
         // 生成请求URL
         $url = "https://$this->ServerIP:$this->ServerPort/$this->SoftVersion/Accounts/$this->AccountSid/Calls/VoiceVerify?sig=$sig";
         // 生成授权：主帐户Id + 英文冒号 + 时间戳。
-        $authen = base64_encode($this->AccountSid . ':' . $this->Batch);
+        $authen = base64_encode($this->AccountSid.':'.$this->Batch);
         // 生成包头
-        $header = array("Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8", "Authorization:$authen");
+        $header = ["Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8", "Authorization:$authen"];
         // 发送请求
         $result = $this->curl_post($url, $body, $header);
         if ($this->BodyType === 'json') {//JSON格式
@@ -209,8 +217,9 @@ class Rest
         }
         return $datas;
     }
+
     /**
-     * 主帐号鉴权
+     * 主帐号鉴权.
      *
      * @return mixed
      */
@@ -220,38 +229,45 @@ class Rest
             $data = new stdClass();
             $data->statusCode = '172004';
             $data->statusMsg = 'IP为空';
+
             return $data;
         }
         if ($this->ServerPort <= 0) {
             $data = new stdClass();
             $data->statusCode = '172005';
             $data->statusMsg = '端口错误（小于等于0）';
+
             return $data;
         }
         if ($this->SoftVersion === '') {
             $data = new stdClass();
             $data->statusCode = '172013';
             $data->statusMsg = '版本号为空';
+
             return $data;
         }
         if ($this->AccountSid === '') {
             $data = new stdClass();
             $data->statusCode = '172006';
             $data->statusMsg = '主帐号为空';
+
             return $data;
         }
         if ($this->AccountToken === '') {
             $data = new stdClass();
             $data->statusCode = '172007';
             $data->statusMsg = '主帐号令牌为空';
+
             return $data;
         }
         if ($this->AppId === '') {
             $data = new stdClass();
             $data->statusCode = '172012';
             $data->statusMsg = '应用ID为空';
+
             return $data;
         }
         return true;
     }
+    
 }

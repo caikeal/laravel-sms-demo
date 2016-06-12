@@ -3,14 +3,12 @@
  * Created by PhpStorm.
  * User: Odeen
  * Date: 2016/6/12
- * Time: 10:11
+ * Time: 10:11.
  */
-
 namespace Sms\Test;
 
 use LaravelSms\sms\Sms;
 use PHPUnit_Framework_TestCase;
-use Mockery as m;
 
 class SmsTest extends PHPUnit_Framework_TestCase
 {
@@ -42,7 +40,7 @@ class SmsTest extends PHPUnit_Framework_TestCase
     {
         $this->sms->to('123456...');
         $smsData = $this->smsData();
-        $this->assertEquals('123456...',$smsData['to']);
+        $this->assertEquals('123456...', $smsData['to']);
     }
 
     public function testSetContent()
@@ -56,11 +54,11 @@ class SmsTest extends PHPUnit_Framework_TestCase
     {
         $this->sms->template('foo', '111');
         $smsData = $this->smsData();
-        $this->assertEquals(['foo'=>'111'], $smsData['templates']);
+        $this->assertEquals(['foo' => '111'], $smsData['templates']);
 
-        $this->sms->template(['foo'=>'111', 'bar'=>'222']);
+        $this->sms->template(['foo' => '111', 'bar' => '222']);
         $smsData = $this->smsData();
-        $this->assertEquals(['foo'=>'111', 'bar'=>'222'], $smsData['templates']);
+        $this->assertEquals(['foo' => '111', 'bar' => '222'], $smsData['templates']);
     }
 
     public function testSetData()
@@ -75,4 +73,5 @@ class SmsTest extends PHPUnit_Framework_TestCase
             'msg'  => 'msg',
         ], $smsData['templateData']);
     }
+    
 }

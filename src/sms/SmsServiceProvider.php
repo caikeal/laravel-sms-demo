@@ -3,9 +3,8 @@
  * Created by PhpStorm.
  * User: Odeen
  * Date: 2016/5/8
- * Time: 23:14
+ * Time: 23:14.
  */
-
 namespace LaravelSms\sms;
 
 use Illuminate\Support\ServiceProvider;
@@ -35,9 +34,11 @@ class SmsServiceProvider extends ServiceProvider
             __DIR__.'/../config/sms.php', 'sms'
         );
 
-        $this->app->singleton('Sms',function($app){
-            $app=new Sms(config('sms.default'));
+        $this->app->singleton('Sms', function ($app) {
+            $app = new Sms(config('sms.default'));
+            
             return $app;
         });
     }
+
 }
