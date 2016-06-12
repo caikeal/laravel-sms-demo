@@ -1,6 +1,9 @@
-preset: symfony
+preset: recommended
 
 linting: true
 
 enabled:
   - strict
+
+disabled:
+  - align_double_arrow
