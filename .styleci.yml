@@ -1,10 +1,8 @@
 preset: symfony
 
-enabled:
-    - strict
-    - strict_param
-    - ordered_use
+linting: true
 
-disabled:
-    - long_array_syntax
-    - phpdoc_short_description
+enabled:
+  - strict
+  - strict_param
+  - ordered_use
