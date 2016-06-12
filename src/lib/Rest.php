@@ -42,8 +42,8 @@ class Rest
     /**
      * 设置主帐号.
      *
-     * @param string $AccountSid    主帐号
-     * @param string $AccountToken  主帐号Token
+     * @param string $AccountSid   主帐号
+     * @param string $AccountToken 主帐号Token
      */
     public function setAccount($AccountSid, $AccountToken)
     {
@@ -103,9 +103,9 @@ class Rest
     /**
      * 发送模板短信.
      *
-     * @param string $to    短信接收彿手机号码集合,用英文逗号分开
-     * @param array $datas  内容数据
-     * @param mixed $tempId 模板Id
+     * @param string $to     短信接收彿手机号码集合,用英文逗号分开
+     * @param array  $datas  内容数据
+     * @param mixed  $tempId 模板Id
      *
      * @return mixed
      */
