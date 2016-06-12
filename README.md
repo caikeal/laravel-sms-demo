@@ -1,7 +1,7 @@
 # laravel-sms-demo
 [![StyleCI](https://styleci.io/repos/58302704/shield)](https://styleci.io/repos/58302704)
 [![Build Status](https://travis-ci.org/caikeal/laravel-sms-demo.svg?branch=master)](https://travis-ci.org/caikeal/laravel-sms-demo)
-[![Code Coverage](https://scrutinizer-ci.com/g/caikeal/laravel-sms-demo/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/caikeal/laravel-sms-demo/?branch=master)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/caikeal/laravel-sms-demo/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/caikeal/laravel-sms-demo/?branch=master)
 [![Latest Stable Version](https://img.shields.io/packagist/v/keal/laravel-sms.svg)](https://packagist.org/packages/keal/laravel-sms)
 [![Total Downloads](https://img.shields.io/packagist/dt/keal/laravel-sms.svg)](https://packagist.org/packages/keal/laravel-sms)
 
