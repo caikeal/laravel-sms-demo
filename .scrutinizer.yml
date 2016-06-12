@@ -5,6 +5,7 @@ checks:
 filter:
     excluded_paths:
         - tests/*
+        - src/config/*
 build:
     environment:
         php:
