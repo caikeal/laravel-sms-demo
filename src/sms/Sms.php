@@ -119,7 +119,7 @@ class Sms
      */
     public function send()
     {
-        if ($this->config == 'YunTongXun') {
+        if ($this->config === 'YunTongXun') {
             $rest = new Rest(config('sms.agents.'.$this->config));
 
             return $rest->sendTemplateSMS($this->smsData['to'], $this->smsData['templateData'], $this->smsData['templates']['YunTongXun']);
