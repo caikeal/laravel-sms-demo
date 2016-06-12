@@ -11,5 +11,4 @@ use Exception as BaseException;
 
 class SmsException extends BaseException
 {
-    
 }

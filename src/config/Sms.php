@@ -3,10 +3,10 @@
  * Created by PhpStorm.
  * User: Odeen
  * Date: 2016/5/8
- * Time: 21:25
+ * Time: 21:25.
  */
 return [
-    'default' => env('SMS_AGENT','YunTongXun'),
+    'default' => env('SMS_AGENT', 'YunTongXun'),
 
     'agents' => [
         /*
@@ -33,6 +33,6 @@ return [
 
             //REST版本号，在官网文档REST介绍中获得。
             'softVersion' => '2013-12-26',
-        ]
-    ]
+        ],
+    ],
 ];

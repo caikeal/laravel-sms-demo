@@ -42,8 +42,8 @@ class Rest
     /**
      * 设置主帐号.
      *
-     * @param string $AccountSid 主帐号
-     * @param string $AccountToken 主帐号Token
+     * @param string $AccountSid    主帐号
+     * @param string $AccountToken  主帐号Token
      */
     public function setAccount($AccountSid, $AccountToken)
     {
@@ -103,12 +103,9 @@ class Rest
     /**
      * 发送模板短信.
      *
-     * @param string $to
-     *                       短信接收彿手机号码集合,用英文逗号分开
-     * @param array $datas
-     *                       内容数据
-     * @param mixed $tempId
-     *                       模板Id
+     * @param string $to    短信接收彿手机号码集合,用英文逗号分开
+     * @param array $datas  内容数据
+     * @param mixed $tempId 模板Id
      *
      * @return mixed
      */
@@ -157,20 +154,21 @@ class Rest
         if (isset($datas->templateSMS)) {
             $datas->TemplateSMS = $datas->templateSMS;
         }
+
         return $datas;
     }
 
     /**
      * 语音验证码.
      *
-     * @param mixed $verifyCode 验证码内容，为数字和英文字母，不区分大小写，长度4-8位
-     * @param mixed $playTimes 播放次数，1－3次
-     * @param mixed $to 接收号码
-     * @param mixed $displayNum 显示的主叫号码
-     * @param mixed $respUrl 语音验证码状态通知回调地址，云通讯平台将向该Url地址发送呼叫结果通知
-     * @param mixed $lang 语言类型
-     * @param mixed $userData 第三方私有数据
-     * @param mixed $welcomePrompt 欢迎提示音，在播放验证码语音前播放此内容（语音文件格式为wav）
+     * @param mixed $verifyCode     验证码内容，为数字和英文字母，不区分大小写，长度4-8位
+     * @param mixed $playTimes      播放次数，1－3次
+     * @param mixed $to             接收号码
+     * @param mixed $displayNum     显示的主叫号码
+     * @param mixed $respUrl        语音验证码状态通知回调地址，云通讯平台将向该Url地址发送呼叫结果通知
+     * @param mixed $lang           语言类型
+     * @param mixed $userData       第三方私有数据
+     * @param mixed $welcomePrompt  欢迎提示音，在播放验证码语音前播放此内容（语音文件格式为wav）
      * @param mixed $playVerifyCode 语音验证码的内容全部播放此节点下的全部语音文件
      *
      * @return mixed
@@ -215,6 +213,7 @@ class Rest
         } else { //xml格式
             $datas = simplexml_load_string(trim($result, " \t\n\r"));
         }
+
         return $datas;
     }
 
@@ -267,7 +266,7 @@ class Rest
 
             return $data;
         }
+
         return true;
     }
-    
 }

@@ -73,5 +73,4 @@ class SmsTest extends PHPUnit_Framework_TestCase
             'msg'  => 'msg',
         ], $smsData['templateData']);
     }
-    
 }

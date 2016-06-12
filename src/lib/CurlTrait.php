@@ -5,19 +5,20 @@
  * Date: 2016/5/9
  * Time: 17:34.
  */
-
 namespace LaravelSms\lib;
 
 /**
- * Class CurlTrait
+ * Class CurlTrait.
  *
  * @function curl_post($url, $data, $header, $post = 1)
  */
 trait CurlTrait
 {
     public $BodyType = 'json';
+
     /**
      * create url post.
+     *
      * @param $url
      * @param $data
      * @param $header
@@ -53,5 +54,4 @@ trait CurlTrait
 
         return $result;
     }
-    
 }

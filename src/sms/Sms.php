@@ -5,9 +5,7 @@
  * Date: 2016/5/8
  * Time: 23:42.
  */
-
 namespace LaravelSms\sms;
-
 
 use LaravelSms\lib\Rest;
 
@@ -17,7 +15,7 @@ class Sms
         'to'           => null,
         'templates'    => [],
         'templateData' => [],
-        'content'      => null
+        'content'      => null,
     ];
 
     protected $agent;
@@ -28,8 +26,7 @@ class Sms
     {
         $this->config = $config;
     }
-
-
+    
     /**
      * Get all the data of SMS/voice verify.
      *
@@ -129,5 +126,4 @@ class Sms
             throw new \Exception('make sure you have choose a right agent');
         }
     }
-    
 }

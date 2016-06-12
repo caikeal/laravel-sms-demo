@@ -36,9 +36,8 @@ class SmsServiceProvider extends ServiceProvider
 
         $this->app->singleton('Sms', function ($app) {
             $app = new Sms(config('sms.default'));
-            
+
             return $app;
         });
     }
-
 }

@@ -15,5 +15,4 @@ class SmsFacade extends LaravelFacade
     {
         return 'Sms';
     }
-
 }
