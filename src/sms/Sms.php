@@ -28,6 +28,21 @@ class Sms
     {
         $this->config = $config;
     }
+    
+    /**
+     * Get all the data of SMS/voice verify.
+     *
+     * @param null|string $name
+     *
+     * @return mixed
+     */
+    public function getData($name = null)
+    {
+        if (is_string($name) && isset($this->smsData["$name"])) {
+            return $this->smsData[$name];
+        }
+        return $this->smsData;
+    }
 
     /**
      * send mobile
@@ -57,8 +72,11 @@ class Sms
      * @param null $tempId
      * @return $this
      */
-    public function template($agentName=$config('sms.default'), $tempId = null)
+    public function template($agentName='SMS_AGENT', $tempId = null)
     {
+        if ($agentName === 'SMS_AGENT'){
+            $agentName = $this->config;
+        }
         if (is_array($agentName)) {
             foreach ($agentName as $k => $v) {
                 $this->template($k, $v);
