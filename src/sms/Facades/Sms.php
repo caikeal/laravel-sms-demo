@@ -5,11 +5,11 @@
  * Date: 2016/5/12
  * Time: 21:58.
  */
-namespace LaravelSms\sms;
+namespace LaravelSms\sms\Facades;
 
 use Illuminate\Support\Facades\Facade as LaravelFacade;
 
-class SmsFacade extends LaravelFacade
+class Sms extends LaravelFacade
 {
     protected static function getFacadeAccessor()
     {
