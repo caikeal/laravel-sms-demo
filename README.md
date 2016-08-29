@@ -15,7 +15,7 @@
 
 ##添加Facade
 在`app.php`中加入
-`'Sms' => LaravelSms\sms\SmsFacade::class`
+`'Sms' => LaravelSms\sms\Facades\Sms::class`
 
 ##配置config
 `php artisan vendor:publish`
