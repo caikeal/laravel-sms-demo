@@ -5,7 +5,7 @@
 [![Latest Stable Version](https://img.shields.io/packagist/v/keal/laravel-sms.svg)](https://packagist.org/packages/keal/laravel-sms)
 [![Total Downloads](https://img.shields.io/packagist/dt/keal/laravel-sms.svg)](https://packagist.org/packages/keal/laravel-sms)
 
-## 支持云通讯
+## 支持云通讯和聚合数据
 ## 安装
 `composer require keal/laravel-sms:dev-master`
 
