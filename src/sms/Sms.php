@@ -124,11 +124,11 @@ class Sms
             $rest = new Rest(config('sms.agents.'.$this->config));
 
             return $rest->sendTemplateSMS($this->smsData['to'], $this->smsData['templateData'], $this->smsData['templates']['YunTongXun']);
-        } elseif ($this->config === 'Juhe'){
+        } elseif ($this->config === 'Juhe') {
             $rest = new Juhe(config('sms.agents.'.$this->config));
 
             return $rest->sendTemplateSMS($this->smsData['to'], $this->smsData['templateData'], $this->smsData['templates']['Juhe']);
-        }else {
+        } else {
             throw new \Exception('make sure you have choose a right agent');
         }
     }
