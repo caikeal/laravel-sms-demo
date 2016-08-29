@@ -39,9 +39,9 @@ class Juhe
                 $value = $vv;
             } else {
                 $value = urlencode($vv);
-                $data = $data.$key.'='.$value.'&';
             }
-            $data = trim($data, '&');
+
+            $data = $data.$key.'='.$value.'&';
         }
         $data = trim($data, '&');
         //生成query params
