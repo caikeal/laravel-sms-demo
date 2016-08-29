@@ -45,7 +45,7 @@ class Juhe
         }
         $data = trim($data, '&');
         //生成query params
-        $body = ['mobile'=>$to,'tpl_id'=>$tempId,'key'=>$this->appId,'tpl_value'=>$data,'dtype'=>$this->BodyType];
+        $body = ['mobile' => $to, 'tpl_id' => $tempId, 'key' => $this->appId, 'tpl_value' => $data, 'dtype' => $this->BodyType];
         // 生成包头
         $header = ["Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8"];
         // 生成请求URL
