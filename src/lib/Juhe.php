@@ -11,7 +11,6 @@ class Juhe
 {
     use CurlTrait;
     protected $appId;
-    private $BodyType = 'json'; //包体格式，可填值：json 、xml
 
     public function __construct(array $config, $BodyType = 'json')
     {
@@ -45,13 +44,15 @@ class Juhe
             $data = trim($data, '&');
         }
         $data = trim($data, '&');
-        $body = "{'mobile':'$to','tpl_id':'$tempId','appId':'$this->appId','tpl_value':$data,'dtype':$this->BodyType}";
+        //生成query params
+        $body = ['mobile'=>$to,'tpl_id'=>$tempId,'key'=>$this->appId,'tpl_value'=>$data,'dtype'=>$this->BodyType];
         // 生成包头
         $header = ["Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8"];
         // 生成请求URL
-        $url = 'http://v.juhe.cn/sms/send';
+        $query = http_build_query($body);
+        $url = 'http://v.juhe.cn/sms/send?'.$query;
         // 发送请求
-        $result = $this->curl_post($url, $body, $header);
+        $result = $this->curl_post($url, $body, $header, 0);
 
         if ($this->BodyType === 'json') {//JSON格式
             $datas = json_decode($result);

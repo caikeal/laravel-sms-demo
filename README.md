@@ -21,4 +21,5 @@
 `php artisan vendor:publish`
 
 ##使用
-Sms::to("这里填写手机号")->template('YunTongXun',具体的模版id)->data("模版内容数组")->send();
+\Sms::to("这里填写手机号")->template('YunTongXun', 具体的模版id)->data("模版内容数组")->send();
+\Sms::to("这里填写手机号")->template('Juhe', 具体的模版id)->data(['模板变量'=>对应的值])->send();
