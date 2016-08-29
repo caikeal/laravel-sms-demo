@@ -3,18 +3,16 @@
  * Created by PhpStorm.
  * User: Caikeal
  * Date: 2016/8/29
- * Time: 10:56
+ * Time: 10:56.
  */
-
 namespace LaravelSms\lib;
-
 
 class Juhe
 {
     use CurlTrait;
     protected $appId;
     private $BodyType = 'json'; //包体格式，可填值：json 、xml
-    
+
     public function __construct(array $config, $BodyType = 'json')
     {
         $this->appId = $config['appId'];
@@ -26,23 +24,23 @@ class Juhe
     public function sendTemplateSMS($to, $datas, $tempId)
     {
         $data = '';
-        foreach ($datas as $kk => $vv){
-            if (is_array($vv)){
+        foreach ($datas as $kk => $vv) {
+            if (is_array($vv)) {
                 throw new \InvalidArgumentException('$datas must be a one-dimensional array, given two-dimensional arrays');
             }
 
             //处理key
-            if (strpos($kk, '#') === false){
+            if (strpos($kk, '#') === false) {
                 $key = '#'.$kk.'#';
-            }else{
+            } else {
                 $key = $kk;
             }
             //处理值
-            if (strpos($vv, '#') === false){
+            if (strpos($vv, '#') === false) {
                 $value = $vv;
-            }else{
+            } else {
                 $value = urlencode($vv);
-                $data = $data.$key."=".$value."&";
+                $data = $data.$key.'='.$value.'&';
             }
             $data = trim($data, '&');
         }
@@ -51,7 +49,7 @@ class Juhe
         // 生成包头
         $header = ["Accept:application/$this->BodyType", "Content-Type:application/$this->BodyType;charset=utf-8"];
         // 生成请求URL
-        $url = "http://v.juhe.cn/sms/send";
+        $url = 'http://v.juhe.cn/sms/send';
         // 发送请求
         $result = $this->curl_post($url, $body, $header);
 
