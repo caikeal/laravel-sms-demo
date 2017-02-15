@@ -5,6 +5,7 @@
  * Date: 2016/5/9
  * Time: 17:34.
  */
+
 namespace LaravelSms\lib;
 
 /**

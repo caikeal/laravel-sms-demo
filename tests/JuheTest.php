@@ -5,6 +5,7 @@
  * Date: 2016/6/12
  * Time: 10:11.
  */
+
 namespace Sms\Test;
 
 use LaravelSms\sms\Sms;
