@@ -6,7 +6,7 @@
  * Time: 23:14.
  */
 
-namespace LaravelSms\sms;
+namespace Caikeal\LaravelSms\sms;
 
 use Illuminate\Support\ServiceProvider;
 

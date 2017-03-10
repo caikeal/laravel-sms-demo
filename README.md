@@ -7,19 +7,21 @@
 
 ## 支持云通讯和聚合数据
 ## 安装
+支持Laravel > 5.1.*
+
 `composer require keal/laravel-sms:dev-master`
 
 ##注册ServiceProvider
 在`app.php`中加入
-`LaravelSms\sms\SmsServiceProvider::class`
+`Caikeal\LaravelSms\sms\SmsServiceProvider::class`
 
 ##添加Facade
 在`app.php`中加入
-`'Sms' => LaravelSms\sms\Facades\Sms::class`
+`'Sms' => Caikeal\LaravelSms\sms\Facades\Sms::class`
 
 ##配置config
 `php artisan vendor:publish`
 
 ##使用
-1. \Sms::to("这里填写手机号")->template('YunTongXun', 具体的模版id)->data("模版内容数组")->send();
+1. \Sms::to("这里填写手机号")->template('YunTongXun', 具体的模版id)->data(["模版变量1内容", "模版变量2内容", ...])->send();
 2. \Sms::to("这里填写手机号")->template('Juhe', 具体的模版id)->data(['模板变量'=>对应的值])->send();

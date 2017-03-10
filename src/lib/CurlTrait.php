@@ -6,7 +6,7 @@
  * Time: 17:34.
  */
 
-namespace LaravelSms\lib;
+namespace Caikeal\LaravelSms\lib;
 
 /**
  * Class CurlTrait.

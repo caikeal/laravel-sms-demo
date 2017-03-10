@@ -6,10 +6,10 @@
  * Time: 23:42.
  */
 
-namespace LaravelSms\sms;
+namespace Caikeal\LaravelSms\sms;
 
-use LaravelSms\lib\Juhe;
-use LaravelSms\lib\Rest;
+use Caikeal\LaravelSms\lib\Juhe;
+use Caikeal\LaravelSms\lib\Rest;
 
 class Sms
 {

@@ -6,12 +6,20 @@
  * Time: 21:58.
  */
 
-namespace LaravelSms\sms\Facades;
+namespace Caikeal\LaravelSms\sms\Facades;
 
 use Illuminate\Support\Facades\Facade as LaravelFacade;
 
+/**
+ * Class Sms
+ * @package Caikeal\LaravelSms\sms\Facades
+ * @see \Caikeal\LaravelSms\sms\SmsServiceProvider
+ */
 class Sms extends LaravelFacade
 {
+    /**
+     * @return string
+     */
     protected static function getFacadeAccessor()
     {
         return 'Sms';

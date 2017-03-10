@@ -8,7 +8,7 @@
 
 namespace Sms\Test;
 
-use LaravelSms\sms\Sms;
+use Caikeal\LaravelSms\sms\Sms;
 use PHPUnit_Framework_TestCase;
 
 class SmsTest extends PHPUnit_Framework_TestCase

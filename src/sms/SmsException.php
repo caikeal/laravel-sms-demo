@@ -6,7 +6,7 @@
  * Time: 23:07.
  */
 
-namespace LaravelSms\sms;
+namespace Caikeal\LaravelSms\sms;
 
 use Exception as BaseException;
 

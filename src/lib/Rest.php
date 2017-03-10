@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelSms\lib;
+namespace Caikeal\LaravelSms\lib;
 
 /*
  *  Copyright (c) 2014 The CCP project authors. All Rights Reserved.

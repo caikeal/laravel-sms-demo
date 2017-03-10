@@ -6,7 +6,7 @@
  * Time: 10:56.
  */
 
-namespace LaravelSms\lib;
+namespace Caikeal\LaravelSms\lib;
 
 class Juhe
 {
