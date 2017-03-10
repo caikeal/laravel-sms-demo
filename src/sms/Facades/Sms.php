@@ -11,8 +11,8 @@ namespace Caikeal\LaravelSms\sms\Facades;
 use Illuminate\Support\Facades\Facade as LaravelFacade;
 
 /**
- * Class Sms
- * @package Caikeal\LaravelSms\sms\Facades
+ * Class Sms.
+ *
  * @see \Caikeal\LaravelSms\sms\SmsServiceProvider
  */
 class Sms extends LaravelFacade
