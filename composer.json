@@ -1,6 +1,6 @@
 {
   "name": "keal/laravel-sms",
-  "description": "sms demo",
+  "description": "easy to send sms",
   "type": "php",
   "license": "MIT",
   "authors": [
