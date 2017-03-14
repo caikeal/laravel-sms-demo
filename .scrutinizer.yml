@@ -9,7 +9,7 @@ filter:
 build:
     environment:
         php:
-            version: 5.6, 7.0 or hhvm
+            version: 5.6, 7.0, 7.1 or hhvm
     tests:
         override:
             -

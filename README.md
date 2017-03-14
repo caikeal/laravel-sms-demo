@@ -7,9 +7,9 @@
 
 ## 支持云通讯和聚合数据
 ## 安装
-支持Laravel > 5.1.*
+支持Laravel > 5.1.*，php > 5.6.4
 
-`composer require keal/laravel-sms:dev-master`
+`composer require keal/laravel-sms`
 
 ##注册ServiceProvider
 在`app.php`中加入
